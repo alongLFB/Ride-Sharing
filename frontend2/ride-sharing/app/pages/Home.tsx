@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Car, Search, Users, AlertCircle } from "lucide-react";
+
 
 const Home = () => {
     return (
@@ -24,49 +26,51 @@ const Home = () => {
             </Card>
 
             <div className="grid md:grid-cols-2 gap-6">
-                <Card className="hover:shadow-lg transition-shadow">
+
+                <Card className="hover:shadow-lg transition-shadow flex flex-col">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                            {/* <Car className="h-6 w-6" /> */}
+                            <Car className="h-6 w-6" />
                             发布出行信息
                         </CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="flex-grow">
                         <p className="mb-4 text-gray-600">
                             作为司机发布您的行程信息，或作为乘客发布您的用车需求
                         </p>
-                        <Link to="/RideShare">
-                            <Button className="w-full">
-                                立即发布
-                            </Button>
-                        </Link>
                     </CardContent>
+                    <CardFooter>
+                        <Link to="/RideShare" className="w-full">
+                            <Button className="w-full">立即发布</Button>
+                        </Link>
+                    </CardFooter>
                 </Card>
 
-                <Card className="hover:shadow-lg transition-shadow">
+                <Card className="hover:shadow-lg transition-shadow flex flex-col">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                            {/* <Search className="h-6 w-6" /> */}
+                            <Search className="h-6 w-6" />
                             查看出行信息
                         </CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="flex-grow">
                         <p className="mb-4 text-gray-600">
                             浏览最新发布的行程信息，寻找合适的出行机会
                         </p>
-                        <Link to="/TravelInfo">
-                            <Button className="w-full">
-                                开始查看
-                            </Button>
-                        </Link>
                     </CardContent>
+                    <CardFooter>
+                        <Link to="/TravelInfo" className="w-full">
+                            <Button className="w-full">开始查看</Button>
+                        </Link>
+                    </CardFooter>
                 </Card>
+
             </div>
 
             <Card className="mt-8">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                        {/* <Users className="h-6 w-6" /> */}
+                        <Users className="h-6 w-6" />
                         平台优势
                     </CardTitle>
                 </CardHeader>
@@ -87,6 +91,21 @@ const Home = () => {
                     </div>
                 </CardContent>
             </Card>
+
+            <Card className="mt-8 bg-gray-100">
+                <CardHeader>
+                    <CardTitle className="text-lg font-semibold flex items-center gap-2">
+                        <AlertCircle className="w-6 h-6 text-red-500" />
+                        免责声明
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-gray-600 font-semibold">
+                        本平台仅作为信息共享工具，不对行程安排、交易安全、人员行为承担任何责任。请用户自行核实信息，确保安全。如遇纠纷，请自行协商解决或寻求法律途径。
+                    </p>
+                </CardContent>
+            </Card>
+
         </div>
     );
 };
