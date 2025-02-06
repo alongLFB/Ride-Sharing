@@ -4,10 +4,23 @@ import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Calendar, MapPin, Users, DollarSign, Phone, MessageCircle } from "lucide-react";
 
+interface Ride {
+    _id: string;
+    type: string;
+    date: string;
+    timeRange: string;
+    departure: string;
+    destination: string;
+    seats: number;
+    price: number;
+    wechat: string;
+    telephone: string;
+}
+
 const TravelInfo = () => {
-    const [rides, setRides] = useState([]);
+    const [rides, setRides] = useState<Ride[]>([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
 
     useEffect(() => {
         fetchRides();
@@ -29,7 +42,7 @@ const TravelInfo = () => {
         }
     };
 
-    const formatDate = (dateString) => {
+    const formatDate = (dateString: string) => {
         return new Date(dateString).toLocaleDateString('zh-CN', {
             year: 'numeric',
             month: 'long',

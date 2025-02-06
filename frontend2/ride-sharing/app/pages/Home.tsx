@@ -1,12 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
 import { Card, CardHeader, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Car, Search, Users, AlertCircle } from "lucide-react";
 
 
