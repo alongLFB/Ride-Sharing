@@ -57,7 +57,7 @@ const RideShare = () => {
     if (!validateForm()) return;
 
     try {
-      const response = await fetch('http://127.0.0.1:3001/api/rideshare/submit', {
+      const response = await fetch('https://rides-sharing.alonglfb.com/api/rideshare/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
