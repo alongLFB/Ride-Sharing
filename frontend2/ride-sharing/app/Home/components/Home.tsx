@@ -2,9 +2,8 @@
 
 import { Card, CardHeader, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { Car, Search, Users, AlertCircle } from "lucide-react";
-
+import Link from "next/link";
 
 const Home = () => {
     return (
@@ -26,25 +25,6 @@ const Home = () => {
                 <Card className="hover:shadow-lg transition-shadow flex flex-col">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                            <Car className="h-6 w-6" />
-                            发布出行信息
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                        <p className="mb-4 text-gray-600">
-                            作为司机发布您的行程信息，或作为乘客发布您的用车需求
-                        </p>
-                    </CardContent>
-                    <CardFooter>
-                        <Link to="/RideShare" className="w-full">
-                            <Button className="w-full">立即发布</Button>
-                        </Link>
-                    </CardFooter>
-                </Card>
-
-                <Card className="hover:shadow-lg transition-shadow flex flex-col">
-                    <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
                             <Search className="h-6 w-6" />
                             查看出行信息
                         </CardTitle>
@@ -55,8 +35,27 @@ const Home = () => {
                         </p>
                     </CardContent>
                     <CardFooter>
-                        <Link to="/TravelInfo" className="w-full">
+                        <Link href="/TravelInfo" className="w-full">
                             <Button className="w-full">开始查看</Button>
+                        </Link>
+                    </CardFooter>
+                </Card>
+
+                <Card className="hover:shadow-lg transition-shadow flex flex-col">
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <Car className="h-6 w-6" />
+                            发布出行信息
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                        <p className="mb-4 text-gray-600">
+                            作为司机发布您的行程信息，或作为乘客发布您的用车需求
+                        </p>
+                    </CardContent>
+                    <CardFooter>
+                        <Link href="/RideShare" className="w-full">
+                            <Button className="w-full">立即发布</Button>
                         </Link>
                     </CardFooter>
                 </Card>

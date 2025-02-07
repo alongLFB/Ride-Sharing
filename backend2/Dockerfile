@@ -14,10 +14,12 @@ RUN npm install -g pm2 && npm install
 COPY . .
 
 # 设置环境变量（可选，docker-compose 也能设置）
-ENV PORT=3001
+ARG BACKEND_PORT
+ENV BACKEND_PORT=${BACKEND_PORT}
 
 # 暴露端口
-EXPOSE 3001
+EXPOSE ${BACKEND_PORT}
 
 # 使用 pm2 运行后端服务
-CMD ["pm2-runtime", "start", "app.js", "--name", "ride-sharing-backend"]
+CMD PORT=$BACKEND_PORT pm2-runtime start app.js --name "ride-sharing-backend"
+

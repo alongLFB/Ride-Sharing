@@ -28,7 +28,7 @@ const TravelInfo = () => {
 
     const fetchRides = async () => {
         try {
-            const response = await fetch('https://rides-sharing.alonglfb.com/api/rideshare');
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/rideshare`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -54,7 +54,7 @@ const TravelInfo = () => {
         return (
             <div className="min-h-screen">
                 <div className="bg-blue-600 text-white p-4 text-center text-xl mb-4">
-                    出行信息
+                    查看出行信息
                 </div>
                 <div className="text-center p-8">
                     加载中...
@@ -67,7 +67,7 @@ const TravelInfo = () => {
         return (
             <div className="min-h-screen">
                 <div className="bg-blue-600 text-white p-4 text-center text-xl mb-4">
-                    出行信息
+                    查看出行信息
                 </div>
                 <div className="text-center text-red-500 p-8">
                     {error}
@@ -79,7 +79,7 @@ const TravelInfo = () => {
     return (
         <div className="min-h-screen">
             <div className="bg-blue-600 text-white p-4 text-center text-xl mb-4">
-                出行信息
+                查看出行信息
             </div>
 
             <div className="container mx-auto px-4">
@@ -104,12 +104,12 @@ const TravelInfo = () => {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="flex items-center gap-2">
                                             <Calendar className="w-5 h-5 text-gray-500" />
-                                            <span>{formatDate(ride.date)} {ride.timeRange}</span>
+                                            <span>日期：{formatDate(ride.date)} {ride.timeRange}</span>
                                         </div>
 
                                         <div className="flex items-center gap-2">
                                             <MapPin className="w-5 h-5 text-gray-500" />
-                                            <span>{ride.departure} → {ride.destination}</span>
+                                            <span>位置：{ride.departure} → {ride.destination}</span>
                                         </div>
 
                                         <div className="flex items-center gap-2">
@@ -119,17 +119,17 @@ const TravelInfo = () => {
 
                                         <div className="flex items-center gap-2">
                                             <DollarSign className="w-5 h-5 text-gray-500" />
-                                            <span>{ride.price} AED</span>
+                                            <span>单人金额：{ride.price} AED</span>
                                         </div>
 
                                         <div className="flex items-center gap-2">
                                             <MessageCircle className="w-5 h-5 text-gray-500" />
-                                            <span>{ride.wechat}</span>
+                                            <span>微信：{ride.wechat}</span>
                                         </div>
 
                                         <div className="flex items-center gap-2">
                                             <Phone className="w-5 h-5 text-gray-500" />
-                                            <span>{ride.telephone}</span>
+                                            <span>电话：{ride.telephone}</span>
                                         </div>
                                     </div>
                                 </CardContent>
